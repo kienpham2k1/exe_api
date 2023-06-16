@@ -1,25 +1,25 @@
-package com.example.exe.models;
+package com.example.exe.model;
 
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
-@Table(name = "Subscription_package", schema = "dbo", catalog = "EXE")
-public class SubscriptionPackageEntity {
+@Table(name = "Department", schema = "dbo", catalog = "EXE")
+public class DepartmentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private String id;
+    @Basic
+    @Column(name = "id_company")
+    private String idCompany;
     @Basic
     @Column(name = "name")
     private String name;
     @Basic
     @Column(name = "description")
     private String description;
-    @Basic
-    @Column(name = "number_of_user")
-    private String numberOfUser;
     @Basic
     @Column(name = "status")
     private String status;
@@ -30,6 +30,14 @@ public class SubscriptionPackageEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getIdCompany() {
+        return idCompany;
+    }
+
+    public void setIdCompany(String idCompany) {
+        this.idCompany = idCompany;
     }
 
     public String getName() {
@@ -48,14 +56,6 @@ public class SubscriptionPackageEntity {
         this.description = description;
     }
 
-    public String getNumberOfUser() {
-        return numberOfUser;
-    }
-
-    public void setNumberOfUser(String numberOfUser) {
-        this.numberOfUser = numberOfUser;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -68,12 +68,12 @@ public class SubscriptionPackageEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SubscriptionPackageEntity that = (SubscriptionPackageEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(numberOfUser, that.numberOfUser) && Objects.equals(status, that.status);
+        DepartmentEntity that = (DepartmentEntity) o;
+        return Objects.equals(id, that.id) && Objects.equals(idCompany, that.idCompany) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, numberOfUser, status);
+        return Objects.hash(id, idCompany, name, description, status);
     }
 }

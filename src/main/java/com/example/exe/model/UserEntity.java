@@ -1,25 +1,25 @@
-package com.example.exe.models;
+package com.example.exe.model;
 
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
-@Table(name = "Department", schema = "dbo", catalog = "EXE")
-public class DepartmentEntity {
+@Table(name = "User", schema = "dbo", catalog = "EXE")
+public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private String id;
     @Basic
-    @Column(name = "id_company")
-    private String idCompany;
-    @Basic
     @Column(name = "name")
     private String name;
     @Basic
-    @Column(name = "description")
-    private String description;
+    @Column(name = "id_company")
+    private String idCompany;
+    @Basic
+    @Column(name = "id_role")
+    private String idRole;
     @Basic
     @Column(name = "status")
     private String status;
@@ -32,14 +32,6 @@ public class DepartmentEntity {
         this.id = id;
     }
 
-    public String getIdCompany() {
-        return idCompany;
-    }
-
-    public void setIdCompany(String idCompany) {
-        this.idCompany = idCompany;
-    }
-
     public String getName() {
         return name;
     }
@@ -48,12 +40,20 @@ public class DepartmentEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getIdCompany() {
+        return idCompany;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setIdCompany(String idCompany) {
+        this.idCompany = idCompany;
+    }
+
+    public String getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(String idRole) {
+        this.idRole = idRole;
     }
 
     public String getStatus() {
@@ -68,12 +68,12 @@ public class DepartmentEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DepartmentEntity that = (DepartmentEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(idCompany, that.idCompany) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(status, that.status);
+        UserEntity that = (UserEntity) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(idCompany, that.idCompany) && Objects.equals(idRole, that.idRole) && Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, idCompany, name, description, status);
+        return Objects.hash(id, name, idCompany, idRole, status);
     }
 }

@@ -1,13 +1,12 @@
-package com.example.exe.models;
+package com.example.exe.model;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Insurance", schema = "dbo", catalog = "EXE")
-public class InsuranceEntity {
+@Table(name = "Subscription_package", schema = "dbo", catalog = "EXE")
+public class SubscriptionPackageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -16,17 +15,11 @@ public class InsuranceEntity {
     @Column(name = "name")
     private String name;
     @Basic
-    @Column(name = "code")
-    private String code;
-    @Basic
     @Column(name = "description")
     private String description;
     @Basic
-    @Column(name = "time_begin")
-    private Date timeBegin;
-    @Basic
-    @Column(name = "time_end")
-    private Date timeEnd;
+    @Column(name = "number_of_user")
+    private String numberOfUser;
     @Basic
     @Column(name = "status")
     private String status;
@@ -47,14 +40,6 @@ public class InsuranceEntity {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -63,20 +48,12 @@ public class InsuranceEntity {
         this.description = description;
     }
 
-    public Date getTimeBegin() {
-        return timeBegin;
+    public String getNumberOfUser() {
+        return numberOfUser;
     }
 
-    public void setTimeBegin(Date timeBegin) {
-        this.timeBegin = timeBegin;
-    }
-
-    public Date getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(Date timeEnd) {
-        this.timeEnd = timeEnd;
+    public void setNumberOfUser(String numberOfUser) {
+        this.numberOfUser = numberOfUser;
     }
 
     public String getStatus() {
@@ -91,12 +68,12 @@ public class InsuranceEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        InsuranceEntity that = (InsuranceEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(code, that.code) && Objects.equals(description, that.description) && Objects.equals(timeBegin, that.timeBegin) && Objects.equals(timeEnd, that.timeEnd) && Objects.equals(status, that.status);
+        SubscriptionPackageEntity that = (SubscriptionPackageEntity) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(numberOfUser, that.numberOfUser) && Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, code, description, timeBegin, timeEnd, status);
+        return Objects.hash(id, name, description, numberOfUser, status);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.exe.models;
+package com.example.exe.model;
 
 import jakarta.persistence.*;
 
