@@ -1,32 +1,31 @@
 package com.example.exe.DAO;
 
-import com.example.exe.model.EmployeeEntity;
+import com.example.exe.model.Employee;
 import com.example.exe.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class EmployeeDAO extends BaseDAOService<EmployeeEntity> {
+public class EmployeeDAO extends BaseDAOService<Employee> {
 @Autowired EmployeeRepository employeeRepository;
     @Override
-    public List<EmployeeEntity> GetAll() {
+    public List<Employee> GetAll() {
         return employeeRepository.findAll();
     }
 
     @Override
-    public EmployeeEntity GetByID(String id) {
+    public Employee GetByID(String id) {
         return null;
     }
 
     @Override
-    public EmployeeEntity Create(EmployeeEntity newEntity) {
+    public Employee Create(Employee newEntity) {
         return null;
     }
 
     @Override
-    public EmployeeEntity Update(String id, EmployeeEntity updateEntity) {
+    public Employee Update(String id, Employee updateEntity) {
         return null;
     }
 

@@ -1,10 +1,9 @@
 package com.example.exe.controller;
 
-import com.example.exe.model.EmployeeEntity;
+import com.example.exe.model.Employee;
 import com.example.exe.service.serviceInterface.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +15,7 @@ public class HomeControllers {
     @Autowired
     EmployeeService employeeService;
     @GetMapping("/home")
-    public List<EmployeeEntity> OnGet() {
+    public List<Employee> OnGet() {
       return   employeeService.GetAll();
     }
 }
