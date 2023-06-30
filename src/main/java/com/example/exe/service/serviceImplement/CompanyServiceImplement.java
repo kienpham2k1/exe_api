@@ -1,8 +1,9 @@
 package com.example.exe.service.serviceImplement;
 
 import com.example.exe.exception.NullException;
+import com.example.exe.mappers.IMapper;
 import com.example.exe.models.Company;
-import com.example.exe.models.CompanySubscription;
+import com.example.exe.payload.request.CompanyRequest;
 import com.example.exe.repository.CompanyRepository;
 import com.example.exe.service.serviceInterface.CompanyService;
 import lombok.Builder;
@@ -17,9 +18,12 @@ import java.util.Optional;
 public class CompanyServiceImplement implements CompanyService {
     @Autowired
     CompanyRepository companyRepository;
+    @Autowired
+    private IMapper mapper;
 
     @Override
     public List<Company> getAll() {
+        //return mapper.mapList(companyRepository.findAll());
         return companyRepository.findAll();
     }
 
@@ -29,13 +33,15 @@ public class CompanyServiceImplement implements CompanyService {
     }
 
     @Override
-    public void create(Company newEntity) {
-        companyRepository.save(newEntity);
+    public void create(CompanyRequest newEntity) {
+        Company source = (Company) mapper.destinationToSource(newEntity);
+        companyRepository.save(source);
     }
 
     @Override
-    public void update(String id, Company newEntity) {
-        companyRepository.save(newEntity);
+    public void update(String id, CompanyRequest newEntity) {
+        Company source = (Company) mapper.destinationToSource(newEntity);
+        companyRepository.save(source);
     }
 
     @Override
