@@ -1,13 +1,14 @@
 package com.example.exe.service.serviceInterface;
 
-import com.example.exe.model.Employee;
+import com.example.exe.models.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService {
-    List<Employee> GetAll();
-    Employee GetById();
-    Employee Create(Employee newEmployee);
-    Employee Update(String id, Employee newEmployee);
-    Employee Delete(String id);
+    List<Employee> getAll();
+    Optional<Employee> getById(String id);
+    void create(Employee newEntity);
+    void update(String id, Employee newEntity);
+    void delete(String id);
 }

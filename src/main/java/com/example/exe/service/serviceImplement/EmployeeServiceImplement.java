@@ -1,39 +1,40 @@
 package com.example.exe.service.serviceImplement;
 
-import com.example.exe.DAO.EmployeeDAO;
-import com.example.exe.model.Employee;
+import com.example.exe.models.Employee;
+import com.example.exe.repository.EmployeeRepository;
 import com.example.exe.service.serviceInterface.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImplement implements EmployeeService {
     @Autowired
-    EmployeeDAO employeeDAO;
+    EmployeeRepository employeeRepository;
     @Override
-    public List<Employee> GetAll() {
-        return  employeeDAO.GetAll();
+    public List<Employee> getAll() {
+        return  employeeRepository.findAll();
     }
 
     @Override
-    public Employee GetById() {
-        return null;
+    public Optional<Employee> getById(String id) {
+        return  employeeRepository.findById(id);
     }
 
     @Override
-    public Employee Create(Employee newEmployee) {
-        return null;
+    public void create(Employee newEmployee) {
+        employeeRepository.save(newEmployee);
     }
 
     @Override
-    public Employee Update(String id, Employee newEmployee) {
-        return null;
+    public void update(String id, Employee newEmployee) {
+
     }
 
     @Override
-    public Employee Delete(String id) {
-        return null;
+    public void delete(String id) {
+
     }
 }

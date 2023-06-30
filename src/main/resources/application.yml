@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://exe-db.database.windows.net:1433;database=exe-db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30
+#    jdbc:sqlserver://localhost:1433;database=exe0001;encrypt=true;trustServerCertificate=true;
+    username: exe.azuredb
+    password: Password!
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: sql_server
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect

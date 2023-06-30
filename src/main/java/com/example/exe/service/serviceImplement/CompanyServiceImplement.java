@@ -1,0 +1,49 @@
+package com.example.exe.service.serviceImplement;
+
+import com.example.exe.exception.NullException;
+import com.example.exe.models.Company;
+import com.example.exe.models.CompanySubscription;
+import com.example.exe.repository.CompanyRepository;
+import com.example.exe.service.serviceInterface.CompanyService;
+import lombok.Builder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Builder
+public class CompanyServiceImplement implements CompanyService {
+    @Autowired
+    CompanyRepository companyRepository;
+
+    @Override
+    public List<Company> getAll() {
+        return companyRepository.findAll();
+    }
+
+    @Override
+    public Optional<Company> getById(String id) {
+        return companyRepository.findById(id);
+    }
+
+    @Override
+    public void create(Company newEntity) {
+        companyRepository.save(newEntity);
+    }
+
+    @Override
+    public void update(String id, Company newEntity) {
+        companyRepository.save(newEntity);
+    }
+
+    @Override
+    public void delete(String id) {
+        Optional<Company> foundE = companyRepository.findById(id);
+        if (foundE.isEmpty()) throw new NullException("Not found");
+        Company entityPresent = foundE.get();
+        entityPresent.setDelete(true);
+        companyRepository.save(entityPresent);
+    }
+}

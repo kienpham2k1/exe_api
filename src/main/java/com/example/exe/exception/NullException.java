@@ -1,6 +1,6 @@
 package com.example.exe.exception;
 
-public class NullException extends   Exception {
+public class NullException extends RuntimeException {
     public NullException() {
     }
 
@@ -12,11 +12,4 @@ public class NullException extends   Exception {
         super(message, cause);
     }
 
-    public NullException(Throwable cause) {
-        super(cause);
-    }
-
-    public NullException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }
