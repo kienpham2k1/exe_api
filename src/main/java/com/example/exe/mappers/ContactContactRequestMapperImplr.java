@@ -5,13 +5,14 @@ import com.example.exe.models.Contact;
 import com.example.exe.payload.request.CompanyRequest;
 import com.example.exe.payload.request.ContactRequest;
 import lombok.Builder;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Builder
+@Primary
 public class ContactContactRequestMapperImplr implements IMapper<Contact, ContactRequest> {
     @Override
     public ContactRequest sourceToDestination(Contact source) {

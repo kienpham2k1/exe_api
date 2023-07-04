@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-@Builder
 public class CompanyCompanyRequestMapperImplr implements IMapper<Company, CompanyRequest> {
     @Override
     public CompanyRequest sourceToDestination(Company source) {
