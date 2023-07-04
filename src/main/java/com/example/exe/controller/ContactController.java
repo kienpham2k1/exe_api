@@ -1,6 +1,7 @@
 package com.example.exe.controller;
 
 import com.example.exe.models.Contact;
+import com.example.exe.payload.request.ContactRequest;
 import com.example.exe.service.serviceInterface.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,13 +26,13 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<?> onPost(@RequestBody Contact newEntity) {
+    public ResponseEntity<?> onPost(@RequestBody ContactRequest newEntity) {
         contactService.create(newEntity);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody Contact newEntity) {
+    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody ContactRequest newEntity) {
         contactService.update(id, newEntity);
         return new ResponseEntity<>(HttpStatus.OK);
     }
