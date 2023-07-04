@@ -15,14 +15,14 @@ public class CompanyCompanyRequestMapperImplr implements IMapper<Company, Compan
         if (source == null) {
             return null;
         }
-        CompanyRequest simpleDestination = new CompanyRequest();
-        simpleDestination.setDescription(source.getDescription());
-        simpleDestination.setEmail(source.getEmail());
-        simpleDestination.setName(source.getName());
-        simpleDestination.setPhoneNumber(source.getPhoneNumber());
-        simpleDestination.setTaxCode(source.getTaxCode());
-        simpleDestination.setStatus(source.getStatus());
-        return simpleDestination;
+        CompanyRequest destination = new CompanyRequest();
+        destination.setDescription(source.getDescription());
+        destination.setEmail(source.getEmail());
+        destination.setName(source.getName());
+        destination.setPhoneNumber(source.getPhoneNumber());
+        destination.setTaxCode(source.getTaxCode());
+        destination.setStatus(source.getStatus());
+        return destination;
     }
 
     @Override
@@ -30,14 +30,14 @@ public class CompanyCompanyRequestMapperImplr implements IMapper<Company, Compan
         if (destination == null) {
             return null;
         }
-        Company simpleSource = new Company();
-        simpleSource.setDescription(destination.getDescription());
-        simpleSource.setEmail(destination.getEmail());
-        simpleSource.setName(destination.getName());
-        simpleSource.setPhoneNumber(destination.getPhoneNumber());
-        simpleSource.setTaxCode(destination.getTaxCode());
-        simpleSource.setStatus(destination.getStatus());
-        return simpleSource;
+        Company source = new Company();
+        source.setDescription(destination.getDescription());
+        source.setEmail(destination.getEmail());
+        source.setName(destination.getName());
+        source.setPhoneNumber(destination.getPhoneNumber());
+        source.setTaxCode(destination.getTaxCode());
+        source.setStatus(destination.getStatus());
+        return source;
     }
 
     @Override

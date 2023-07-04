@@ -46,10 +46,11 @@ public class CompanyServiceImplement implements CompanyService {
 
     @Override
     public void delete(String id) {
-        Optional<Company> foundE = companyRepository.findById(id);
-        if (foundE.isEmpty()) throw new NullException("Not found");
-        Company entityPresent = foundE.get();
-        entityPresent.setDelete(true);
-        companyRepository.save(entityPresent);
+//        Optional<Company> foundE = companyRepository.findById(id);
+//        if (foundE.isEmpty()) throw new NullException("Not found");
+//        Company entityPresent = foundE.get();
+//        entityPresent.setDelete(true);
+//        companyRepository.save(entityPresent);
+        companyRepository.deleteById(id);
     }
 }
