@@ -44,7 +44,6 @@ public class Insurance {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "insuranceByIdInsuarace")
-    @JsonIgnore
-    private Collection<EmployeeInsurance> employeeInsurancesById;
+    @OneToMany(mappedBy = "insurance", fetch = FetchType.EAGER)
+    private Collection<EmployeeInsurance> employeeInsurances;
 }

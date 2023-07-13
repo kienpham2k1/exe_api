@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface ContactService  {
     List<Contact> getAll();
     Optional<Contact> getById(String id);
-    void create(ContactRequest newEntity);
-    void update(String id, ContactRequest newEntity);
+    void create(Contact newEntity);
+    void update(String id, Contact newEntity);
     void delete(String id);
 }

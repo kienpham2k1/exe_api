@@ -62,24 +62,24 @@ public class Contact {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", insertable = false, updatable = false)
-    private Company companyByIdCompany;
+    private Company company;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", insertable = false, updatable = false)
-    private Employee employeeByIdEmployee;
+    private Employee employee;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_position", referencedColumnName = "id", insertable = false, updatable = false)
-    private Position positionByIdPosition;
+    private Position position;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_skill", referencedColumnName = "id", insertable = false, updatable = false)
-    private Skill skillByIdSkill;
+    private Skill skill;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_level", referencedColumnName = "id", insertable = false, updatable = false)
-    private Level levelByIdLevel;
-    @OneToMany(mappedBy = "contactByIdContact")
+    private Level level;
+    @OneToMany(mappedBy = "contact", fetch = FetchType.EAGER)
     @JsonIgnore
-    private Collection<Salary> salariesById;
+    private Collection<Salary> salaries;
 }

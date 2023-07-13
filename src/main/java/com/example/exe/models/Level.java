@@ -37,11 +37,10 @@ public class Level {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "levelByIdLevel")
-    @JsonIgnore
-    private Collection<Contact> contactsById;
+    @OneToMany(mappedBy = "level", fetch = FetchType.EAGER)
+    private Collection<Contact> contacts;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_skill", referencedColumnName = "id", insertable = false, updatable = false)
-    private Skill skillByIdSkill;
+    private Skill skill;
 }

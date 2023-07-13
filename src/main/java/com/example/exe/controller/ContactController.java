@@ -26,13 +26,13 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<?> onPost(@RequestBody ContactRequest newEntity) {
+    public ResponseEntity<?> onPost(@RequestBody Contact newEntity) {
         contactService.create(newEntity);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody ContactRequest newEntity) {
+    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody Contact newEntity) {
         contactService.update(id, newEntity);
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface CompanyService {
     List<Company> getAll();
     Optional<Company> getById(String id);
-    void create(CompanyRequest newEntity);
-    void update(String id, CompanyRequest newEntity);
+    void create(Company newEntity);
+    void update(String id, Company newEntity);
     void delete(String id);
 }

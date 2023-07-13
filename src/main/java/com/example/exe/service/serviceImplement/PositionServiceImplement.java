@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class PositionServiceImplement implements PositionService {
     @Autowired
     PositionRepository positionRepository;
+
     @Override
     public List<Position> getAll() {
         return positionRepository.findAll();
@@ -35,6 +37,6 @@ public class PositionServiceImplement implements PositionService {
 
     @Override
     public void delete(String id) {
-
+        positionRepository.deleteById(id);
     }
 }

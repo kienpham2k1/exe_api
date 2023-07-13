@@ -37,14 +37,12 @@ public class Skill {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "skillByIdSkill")
-    @JsonIgnore
-    private Collection<Contact> contactsById;
-    @OneToMany(mappedBy = "skillByIdSkill")
-    @JsonIgnore
-    private Collection<Level> levelsById;
+    @OneToMany(mappedBy = "skill", fetch = FetchType.EAGER)
+    private Collection<Contact> contacts;
+    @OneToMany(mappedBy = "skill", fetch = FetchType.EAGER)
+    private Collection<Level> levels;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_position", referencedColumnName = "id", insertable = false, updatable = false)
-    private Position positionByIdPosition;
+    private Position position;
 }

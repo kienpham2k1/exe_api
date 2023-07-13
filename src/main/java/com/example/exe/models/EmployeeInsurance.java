@@ -36,9 +36,9 @@ public class EmployeeInsurance {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Employee employeeByIdEmployee;
+    private Employee employee;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_insuarace", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Insurance insuranceByIdInsuarace;
+    private Insurance insurance;
 }

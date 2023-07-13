@@ -31,10 +31,8 @@ public class Position {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "positionByIdPosition")
-    @JsonIgnore
-    private Collection<Contact> contactsById;
-    @OneToMany(mappedBy = "positionByIdPosition")
-    @JsonIgnore
-    private Collection<Skill> skillsById;
+    @OneToMany(mappedBy = "position", fetch = FetchType.EAGER)
+    private Collection<Contact> contacts;
+    @OneToMany(mappedBy = "position", fetch = FetchType.EAGER)
+    private Collection<Skill> skill;
 }

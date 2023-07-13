@@ -53,24 +53,20 @@ public class Employee {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "employeeByIdEmployee")
-    @JsonIgnore
-    private Collection<Contact> contactsById;
-    @OneToMany(mappedBy = "employeeByIdEmployee")
-    @JsonIgnore
-    private Collection<Dependent> dependentsById;
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    private Collection<Contact> contacts;
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    private Collection<Dependent> dependents;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_department", referencedColumnName = "id", insertable = false, updatable = false)
-    private Department departmentByIdDepartment;
+    private Department department;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_timekeeping", referencedColumnName = "id", insertable = false, updatable = false)
-    private Timekeeping timekeepingByIdTimekeeping;
-    @OneToMany(mappedBy = "employeeByIdEmployee")
-    @JsonIgnore
-    private Collection<EmployeeInsurance> employeeInsurancesById;
-    @OneToMany(mappedBy = "employeeByIdEmployee")
-    @JsonIgnore
-    private Collection<Salary> salariesById;
+    private Timekeeping timekeeping;
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    private Collection<EmployeeInsurance> employeeInsurances;
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    private Collection<Salary> salaries;
 }

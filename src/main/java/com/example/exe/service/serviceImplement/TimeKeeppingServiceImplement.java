@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class TimeKeeppingServiceImplement implements TimeKeeppingService {
     @Autowired
     TimeKeeppingRepository timeKeeppingRepository;
+
     @Override
     public List<Timekeeping> getAll() {
         return timeKeeppingRepository.findAll();
@@ -34,6 +36,6 @@ public class TimeKeeppingServiceImplement implements TimeKeeppingService {
 
     @Override
     public void delete(String id) {
-
+        timeKeeppingRepository.deleteById(id);
     }
 }

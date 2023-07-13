@@ -33,15 +33,14 @@ public class CompanyServiceImplement implements CompanyService {
     }
 
     @Override
-    public void create(CompanyRequest newEntity) {
-        Company source = (Company) mapper.destinationToSource(newEntity);
-        companyRepository.save(source);
+    public void create(Company newEntity) {
+
+        companyRepository.save(newEntity);
     }
 
     @Override
-    public void update(String id, CompanyRequest newEntity) {
-        Company source = (Company) mapper.destinationToSource(newEntity);
-        companyRepository.save(source);
+    public void update(String id, Company newEntity) {
+        companyRepository.save(newEntity);
     }
 
     @Override

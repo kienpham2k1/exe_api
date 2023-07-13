@@ -34,7 +34,6 @@ public class Role {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "roleByIdRole")
-    @JsonIgnore
-    private Collection<User> usersById;
+    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
+    private Collection<User> users;
 }

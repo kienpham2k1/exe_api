@@ -30,11 +30,11 @@ public class EmployeeServiceImplement implements EmployeeService {
 
     @Override
     public void update(String id, Employee newEmployee) {
-
+employeeRepository.save(newEmployee);
     }
 
     @Override
     public void delete(String id) {
-
+employeeRepository.deleteById(id);
     }
 }

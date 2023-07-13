@@ -31,10 +31,11 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public void update(String id, User newEntity) {
-    userRepository.save(newEntity);
+        userRepository.save(newEntity);
     }
 
     @Override
     public void delete(String id) {
+        userRepository.deleteById(id);
     }
 }

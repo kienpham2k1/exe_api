@@ -1,6 +1,7 @@
 package com.example.exe.controller;
 
 import com.example.exe.models.Employee;
+import com.example.exe.models.Employee;
 import com.example.exe.payload.EmployeeRequest;
 import com.example.exe.repository.EmployeeRepository;
 import com.example.exe.service.serviceInterface.EmployeeService;
@@ -18,15 +19,29 @@ public class EmployeesController {
     EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity onGet() {
+    public ResponseEntity<?> onGet() {
         return new ResponseEntity<>(employeeService.getAll(), HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> onGet(@RequestParam String id) {
+        return new ResponseEntity<>(employeeService.getById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    ResponseEntity onPost(@RequestBody EmployeeRequest employee2) {
-        Employee employee = new Employee();
-        employee.setName("ss");
-        employeeService.create(employee);
+    public ResponseEntity<?> onPost(@RequestBody Employee newEntity) {
+        employeeService.create(newEntity);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody Employee newEntity) {
+        employeeService.update(id, newEntity);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> onDelete(@RequestParam String id) {
+        employeeService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -35,6 +35,6 @@ public class SalaryServiceImplement implements SalaryService {
 
     @Override
     public void delete(String id) {
-
+    salaryRepository.deleteById(id);
     }
 }

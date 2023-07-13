@@ -37,6 +37,6 @@ public class DependentServiceImplement implements DependentService {
 
     @Override
     public void delete(String id) {
-
+dependentRepository.deleteById(id);
     }
 }

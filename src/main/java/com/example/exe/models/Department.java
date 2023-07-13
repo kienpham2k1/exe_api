@@ -37,12 +37,10 @@ public class Department {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", insertable = false, updatable = false)
-    private Company companyByIdCompany;
-    @OneToMany(mappedBy = "departmentByIdDepartment")
-    @JsonIgnore
-    private Collection<Employee> employeesById;
+    private Company company;
+    @OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
+    private Collection<Employee> employees;
 }

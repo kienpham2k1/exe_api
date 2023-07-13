@@ -35,6 +35,6 @@ public class SkillServiceImplement implements SkillService {
 
     @Override
     public void delete(String id) {
-
+    skillRepository.deleteById(id);
     }
 }

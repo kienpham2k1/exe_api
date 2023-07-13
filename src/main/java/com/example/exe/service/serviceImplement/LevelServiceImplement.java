@@ -35,6 +35,6 @@ public class LevelServiceImplement  implements LevelService {
 
     @Override
     public void delete(String id) {
-
+    levelRepository.deleteById(id);
     }
 }

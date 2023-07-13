@@ -40,7 +40,6 @@ public class SubscriptionPackage {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "subscriptionPackageByIdSubscriptionPakage")
-    @JsonIgnore
-    private Collection<CompanySubscription> companySubscriptionsById;
+    @OneToMany(mappedBy = "subscriptionPackage", fetch = FetchType.EAGER)
+    private Collection<CompanySubscription> companySubscriptions;
 }

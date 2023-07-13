@@ -42,16 +42,12 @@ public class Company {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "companyByIdCompany")
-    @JsonIgnore
-    private Collection<CompanySubscription> companySubscriptionsById;
-    @OneToMany(mappedBy = "companyByIdCompany")
-    @JsonIgnore
-    private Collection<Contact> contactsById;
-    @OneToMany(mappedBy = "companyByIdCompany")
-    @JsonIgnore
-    private Collection<Department> departmentsById;
-    @OneToMany(mappedBy = "companyByIdCompany")
-    @JsonIgnore
-    private Collection<User> usersById;
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
+    private Collection<CompanySubscription> companySubscriptions;
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
+    private Collection<Contact> contacts;
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
+    private Collection<Department> departments;
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
+    private Collection<User> users;
 }

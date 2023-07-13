@@ -26,13 +26,13 @@ public class CompanyController {
     }
 
     @PostMapping
-    public ResponseEntity<?> onPost(@RequestBody CompanyRequest newEntity) {
+    public ResponseEntity<?> onPost(@RequestBody Company newEntity) {
         companyService.create(newEntity);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody CompanyRequest newEntity) {
+    public ResponseEntity<?> onPut(@RequestParam String id, @RequestBody Company newEntity) {
         companyService.update(id, newEntity);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

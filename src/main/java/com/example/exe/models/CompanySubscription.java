@@ -41,9 +41,9 @@ public class CompanySubscription {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Company companyByIdCompany;
+    private Company company;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_subscription_pakage", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private SubscriptionPackage subscriptionPackageByIdSubscriptionPakage;
+    private SubscriptionPackage subscriptionPackage;
 }

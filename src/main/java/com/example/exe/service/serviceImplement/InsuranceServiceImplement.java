@@ -39,6 +39,6 @@ public class InsuranceServiceImplement implements InsuranceService {
 
     @Override
     public void delete(String id) {
-
+insuranceRepository.deleteById(id);
     }
 }

@@ -52,13 +52,13 @@ public class Salary {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", insertable = false, updatable = false)
-    private Employee employeeByIdEmployee;
+    private Employee employee;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_contact", referencedColumnName = "id", insertable = false, updatable = false)
-    private Contact contactByIdContact;
+    private Contact contact;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_timekeeping", referencedColumnName = "id", insertable = false, updatable = false)
-    private Timekeeping timekeepingByIdTimekeeping;
+    private Timekeeping timekeeping;
 }

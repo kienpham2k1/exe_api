@@ -38,5 +38,5 @@ public class Dependent {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", insertable = false, updatable = false)
-    private Employee employeeByIdEmployee;
+    private Employee employee;
 }

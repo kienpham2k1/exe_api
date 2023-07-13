@@ -31,15 +31,13 @@ public class ContactServiceImplement implements ContactService {
     }
 
     @Override
-    public void create(ContactRequest newEntity) {
-        Contact source = (Contact) mapper.destinationToSource(newEntity);
-        contactRepository.save(source);
+    public void create(Contact newEntity) {
+        contactRepository.save(newEntity);
     }
 
     @Override
-    public void update(String id, ContactRequest newEntity) {
-        Contact source = (Contact) mapper.destinationToSource(newEntity);
-        contactRepository.save(source);
+    public void update(String id, Contact newEntity) {
+        contactRepository.save(newEntity);
     }
 
     @Override

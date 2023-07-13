@@ -38,9 +38,9 @@ public class User {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", insertable = false, updatable = false)
-    private Company companyByIdCompany;
+    private Company company;
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "id_role", referencedColumnName = "id", insertable = false, updatable = false)
-    private Role roleByIdRole;
+    private Role role;
 }

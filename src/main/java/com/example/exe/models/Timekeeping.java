@@ -50,10 +50,8 @@ public class Timekeeping {
     @Basic
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
-    @OneToMany(mappedBy = "timekeepingByIdTimekeeping")
-    @JsonIgnore
-    private Collection<Employee> employeesById;
-    @OneToMany(mappedBy = "timekeepingByIdTimekeeping")
-    @JsonIgnore
-    private Collection<Salary> salariesById;
+    @OneToMany(mappedBy = "timekeeping", fetch = FetchType.EAGER)
+    private Collection<Employee> employees;
+    @OneToMany(mappedBy = "timekeeping", fetch = FetchType.EAGER)
+    private Collection<Salary> salaries;
 }
