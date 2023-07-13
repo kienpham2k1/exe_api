@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.ContactEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "contact" ,schema = "dbo")
+@Table(name = "contact", schema = "dbo")
 public class Contact {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
@@ -59,20 +60,26 @@ public class Contact {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", insertable = false, updatable = false)
     private Company companyByIdCompany;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", insertable = false, updatable = false)
     private Employee employeeByIdEmployee;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_position", referencedColumnName = "id", insertable = false, updatable = false)
     private Position positionByIdPosition;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_skill", referencedColumnName = "id", insertable = false, updatable = false)
     private Skill skillByIdSkill;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_level", referencedColumnName = "id", insertable = false, updatable = false)
     private Level levelByIdLevel;
     @OneToMany(mappedBy = "contactByIdContact")
+    @JsonIgnore
     private Collection<Salary> salariesById;
 }

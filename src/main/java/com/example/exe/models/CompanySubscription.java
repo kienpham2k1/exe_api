@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.CompanySubscriptionEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,9 +39,11 @@ public class CompanySubscription {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Company companyByIdCompany;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_subscription_pakage", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private SubscriptionPackage subscriptionPackageByIdSubscriptionPakage;
 }

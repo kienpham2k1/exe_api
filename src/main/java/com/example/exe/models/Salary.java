@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.SalaryEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,12 +50,15 @@ public class Salary {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", insertable = false, updatable = false)
     private Employee employeeByIdEmployee;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_contact", referencedColumnName = "id", insertable = false, updatable = false)
     private Contact contactByIdContact;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_timekeeping", referencedColumnName = "id", insertable = false, updatable = false)
     private Timekeeping timekeepingByIdTimekeeping;
 }

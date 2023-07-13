@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.CompanyEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -42,11 +43,15 @@ public class Company {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @OneToMany(mappedBy = "companyByIdCompany")
+    @JsonIgnore
     private Collection<CompanySubscription> companySubscriptionsById;
     @OneToMany(mappedBy = "companyByIdCompany")
+    @JsonIgnore
     private Collection<Contact> contactsById;
     @OneToMany(mappedBy = "companyByIdCompany")
+    @JsonIgnore
     private Collection<Department> departmentsById;
     @OneToMany(mappedBy = "companyByIdCompany")
+    @JsonIgnore
     private Collection<User> usersById;
 }

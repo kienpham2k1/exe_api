@@ -2,6 +2,7 @@ package com.example.exe.models;
 
 import com.example.exe.enums.EmployeeEnum;
 import com.example.exe.enums.EmployeeInsuranceEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,9 +34,11 @@ public class EmployeeInsurance {
     private EmployeeInsuranceEnum status;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Employee employeeByIdEmployee;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_insuarace", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Insurance insuranceByIdInsuarace;
 }

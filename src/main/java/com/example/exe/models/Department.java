@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.DepartmentEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "department",schema = "dbo")
+@Table(name = "department", schema = "dbo")
 public class Department {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
@@ -38,8 +39,10 @@ public class Department {
     private boolean isDelete;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", insertable = false, updatable = false)
     private Company companyByIdCompany;
     @OneToMany(mappedBy = "departmentByIdDepartment")
+    @JsonIgnore
     private Collection<Employee> employeesById;
 }

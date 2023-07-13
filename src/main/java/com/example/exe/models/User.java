@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.UserEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,9 +36,11 @@ public class User {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_company", referencedColumnName = "id", insertable = false, updatable = false)
     private Company companyByIdCompany;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_role", referencedColumnName = "id", insertable = false, updatable = false)
     private Role roleByIdRole;
 }

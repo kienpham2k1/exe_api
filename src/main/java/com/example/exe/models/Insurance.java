@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.InsuranceEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "insurance" ,schema = "dbo")
+@Table(name = "insurance", schema = "dbo")
 public class Insurance {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
@@ -44,5 +45,6 @@ public class Insurance {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @OneToMany(mappedBy = "insuranceByIdInsuarace")
+    @JsonIgnore
     private Collection<EmployeeInsurance> employeeInsurancesById;
 }

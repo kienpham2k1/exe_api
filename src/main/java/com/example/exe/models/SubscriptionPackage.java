@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.SubscriptionPackageEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "subscription_package",schema = "dbo")
+@Table(name = "subscription_package", schema = "dbo")
 public class SubscriptionPackage {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
@@ -40,5 +41,6 @@ public class SubscriptionPackage {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @OneToMany(mappedBy = "subscriptionPackageByIdSubscriptionPakage")
+    @JsonIgnore
     private Collection<CompanySubscription> companySubscriptionsById;
 }

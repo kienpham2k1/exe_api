@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.DependentEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,6 +36,7 @@ public class Dependent {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_employee", referencedColumnName = "id", insertable = false, updatable = false)
     private Employee employeeByIdEmployee;
 }

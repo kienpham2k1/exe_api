@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.PositionEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,7 +32,9 @@ public class Position {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @OneToMany(mappedBy = "positionByIdPosition")
+    @JsonIgnore
     private Collection<Contact> contactsById;
     @OneToMany(mappedBy = "positionByIdPosition")
+    @JsonIgnore
     private Collection<Skill> skillsById;
 }

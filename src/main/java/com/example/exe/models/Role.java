@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.RoleEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "role"  ,schema = "dbo")
+@Table(name = "role", schema = "dbo")
 public class Role {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
@@ -34,5 +35,6 @@ public class Role {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @OneToMany(mappedBy = "roleByIdRole")
+    @JsonIgnore
     private Collection<User> usersById;
 }

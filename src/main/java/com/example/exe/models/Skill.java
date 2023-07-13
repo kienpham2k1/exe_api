@@ -1,6 +1,7 @@
 package com.example.exe.models;
 
 import com.example.exe.enums.SkillEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "skill",schema = "dbo")
+@Table(name = "skill", schema = "dbo")
 public class Skill {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
@@ -37,10 +38,13 @@ public class Skill {
     @Column(name = "isDeleted", nullable = true)
     private boolean isDelete;
     @OneToMany(mappedBy = "skillByIdSkill")
+    @JsonIgnore
     private Collection<Contact> contactsById;
     @OneToMany(mappedBy = "skillByIdSkill")
+    @JsonIgnore
     private Collection<Level> levelsById;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_position", referencedColumnName = "id", insertable = false, updatable = false)
     private Position positionByIdPosition;
 }
